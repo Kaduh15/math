@@ -92,7 +92,7 @@ function acerto() {
 function randInt(minimo = 0, maximo = 5) {
     let i = 1
     while (i == 1) {
-        let numero = parseInt(Math.random() * maximo + 1)
+        let numero = parseInt(Math.random() * maximo)
         if (numero >= minimo && numero <= maximo) {
             i = 0
             return numero
