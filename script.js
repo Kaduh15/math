@@ -39,6 +39,7 @@ let cronometro = setInterval(() => {
     document.getElementById('cronometro').innerHTML = tempo
     if (tempo == 0) {
 
+        alert('Perdeu!!!')
         clearInterval(cronometro)
     } else {
         if (acertoerrou == 1) {
@@ -80,6 +81,8 @@ function acerto() {
     tempo = 5
 
     document.body.appendChild(criaElemento('p', tempo, 'cronometro'))
+
+    cronometro()
 
     return
 
