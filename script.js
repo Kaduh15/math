@@ -126,8 +126,11 @@ function criaElemento(Elemento, innerHTML, id) {
     if (id) {
         elemento.id = id
     }
+<<<<<<< HEAD
     if (classe) {
         elemento.class = classe
     }
+=======
+>>>>>>> parent of dc3ef83 (atualiza a função criarElemento)
     return elemento
 }
