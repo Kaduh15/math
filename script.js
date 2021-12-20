@@ -1,5 +1,3 @@
-
-
 let equacao = equação()
 let titulo = criaElemento('h1', `Quanto é ${equacao.equacao}? ${equacao.resultado}`)
 let acertoerrou = 0
@@ -7,6 +5,7 @@ let acertoerrou = 0
 document.body.appendChild(titulo)
 
 let numero = randInt(0, 2)
+let numeroerrado = randInt(0, 21)
 
 for (let i = 0; i < 3; i++) {
     if (numero == i) {
@@ -15,8 +14,16 @@ for (let i = 0; i < 3; i++) {
             acerto()
         }
         document.body.appendChild(btnCerto)
+
+        numeroerrado = randInt(0, 21)
+
     } else {
-        document.body.appendChild(criaElemento('button', randInt(0, 20)))
+        while (numeroerrado == equacao.resultado) {
+            numeroerrado = randInt(0, 21)
+        }
+        document.body.appendChild(criaElemento('button', numeroerrado))
+
+        numeroerrado = randInt(0, 21)
     }
 
 }
@@ -31,7 +38,7 @@ let cronometro = setInterval(() => {
     tempo--
     document.getElementById('cronometro').innerHTML = tempo
     if (tempo == 0) {
-        
+
         clearInterval(cronometro)
     } else {
         if (acertoerrou == 1) {
@@ -47,6 +54,7 @@ function acerto() {
     for (let i = 0; i < 3; i++) {
         document.getElementsByTagName('button')[0].remove()
     }
+    document.getElementById('cronometro').remove()
     numero = randInt(0, 2)
     for (let i = 0; i < 3; i++) {
         if (numero == i) {
@@ -55,13 +63,25 @@ function acerto() {
                 acerto()
             }
             document.body.appendChild(btnCerto)
+
+            numeroerrado = randInt(0, 21)
+
         } else {
-            document.body.appendChild(criaElemento('button', randInt(0, 20)))
+            while (numeroerrado == equacao.resultado) {
+                numeroerrado = randInt(0, 21)
+            }
+            document.body.appendChild(criaElemento('button', numeroerrado))
+
+            numeroerrado = randInt(0, 21)
         }
 
     }
 
-    return 
+    tempo = 5
+
+    document.body.appendChild(criaElemento('p', tempo, 'cronometro'))
+
+    return
 
 }
 
