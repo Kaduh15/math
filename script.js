@@ -14,15 +14,19 @@ for (let i = 0; i < 3; i++) {
         }
         document.body.appendChild(btnCerto)
 
-        numeroerrado = randInt(0, 21)
-
     } else {
         while (numeroerrado == equacao.resultado) {
             numeroerrado = randInt(0, 21)
         }
-        document.body.appendChild(criaElemento('button', numeroerrado))
 
-        numeroerrado = randInt(0, 21)
+        if (document.getElementsByTagName('button').length == 2) {
+            for (let b = 0; document.getElementsByTagName('button').length < 3; b++) {
+                if (numeroerrado == document.getElementsByTagName('button')[b]) {
+                    numeroerrado = randInt(0, 21)
+                }
+            }
+        }
+        document.body.appendChild(criaElemento('button', numeroerrado))
     }
 
 }
@@ -44,13 +48,19 @@ let cronometro = setInterval(() => {
 }, 1000)
 
 function acerto() {
+
     equacao = equação()
+
     titulo.innerText = `Quanto é ${equacao.equacao}? ${equacao.resultado}`
+
     for (let i = 0; i < 3; i++) {
         document.getElementsByTagName('button')[0].remove()
     }
+
     document.getElementById('cronometro').remove()
+
     numero = randInt(0, 2)
+
     for (let i = 0; i < 3; i++) {
         if (numero == i) {
             let btnCerto = criaElemento('button', equacao.resultado)
@@ -59,15 +69,19 @@ function acerto() {
             }
             document.body.appendChild(btnCerto)
 
-            numeroerrado = randInt(0, 21)
-
         } else {
             while (numeroerrado == equacao.resultado) {
                 numeroerrado = randInt(0, 21)
             }
-            document.body.appendChild(criaElemento('button', numeroerrado))
 
-            numeroerrado = randInt(0, 21)
+            if (document.getElementsByTagName('button').length == 2) {
+                for (let b = 0; document.getElementsByTagName('button').length < 3; b++) {
+                    if (numeroerrado == document.getElementsByTagName('button')[b]) {
+                        numeroerrado = randInt(0, 21)
+                    }
+                }
+                document.body.appendChild(criaElemento('button', numeroerrado))
+            }
         }
 
     }
@@ -76,7 +90,7 @@ function acerto() {
 
     document.body.appendChild(criaElemento('p', tempo, 'cronometro'))
 
-    cronometro()
+    // cronometro()
 
     return
 
@@ -112,7 +126,7 @@ function criaElemento(Elemento, innerHTML, id, classe) {
     if (id) {
         elemento.id = id
     }
-    if (classe){
+    if (classe) {
         elemento.class = classe
     }
     return elemento
