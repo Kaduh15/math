@@ -1,6 +1,5 @@
 let equacao = equação()
 let titulo = criaElemento('h1', `Quanto é ${equacao.equacao}? ${equacao.resultado}`)
-let acertoerrou = 0
 
 document.body.appendChild(titulo)
 
@@ -39,13 +38,8 @@ let cronometro = setInterval(() => {
     document.getElementById('cronometro').innerHTML = tempo
     if (tempo == 0) {
 
-        alert('Perdeu!!!')
+        // alert('Perdeu!!!')
         clearInterval(cronometro)
-    } else {
-        if (acertoerrou == 1) {
-
-            clearInterval(cronometro)
-        }
     }
 }, 1000)
 
