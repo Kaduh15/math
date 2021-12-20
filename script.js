@@ -1,5 +1,8 @@
+
+
 let equacao = equação()
 let titulo = criaElemento('h1', `Quanto é ${equacao.equacao}? ${equacao.resultado}`)
+let acertoerrou = 0
 
 document.body.appendChild(titulo)
 
@@ -18,10 +21,8 @@ for (let i = 0; i < 3; i++) {
 
 }
 
-console.log(document.getElementsByTagName('button'))
 
-
-/* let tempo = 5
+let tempo = 5
 
 document.body.appendChild(criaElemento('p', tempo, 'cronometro'))
 
@@ -32,8 +33,13 @@ let cronometro = setInterval(() => {
     if (tempo == 0) {
         
         clearInterval(cronometro)
+    } else {
+        if (acertoerrou == 1) {
+
+            clearInterval(cronometro)
+        }
     }
-}, 1000) */
+}, 1000)
 
 function acerto() {
     equacao = equação()
@@ -54,6 +60,8 @@ function acerto() {
         }
 
     }
+
+    return 
 
 }
 
