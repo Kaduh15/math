@@ -106,11 +106,14 @@ function equação() {
 }
 
 
-function criaElemento(Elemento, innerHTML, id) {
+function criaElemento(Elemento, innerHTML, id, classe) {
     let elemento = document.createElement(Elemento)
     elemento.innerHTML = innerHTML
     if (id) {
         elemento.id = id
+    }
+    if (classe){
+        elemento.class = classe
     }
     return elemento
 }
