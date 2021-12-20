@@ -120,14 +120,17 @@ function equação() {
 }
 
 
-function criaElemento(Elemento, innerHTML, id, classe) {
+function criaElemento(Elemento, innerHTML, id) {
     let elemento = document.createElement(Elemento)
     elemento.innerHTML = innerHTML
     if (id) {
         elemento.id = id
     }
+<<<<<<< HEAD
     if (classe) {
         elemento.class = classe
     }
+=======
+>>>>>>> parent of dc3ef83 (atualiza a função criarElemento)
     return elemento
 }
